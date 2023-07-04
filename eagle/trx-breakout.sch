@@ -8298,6 +8298,232 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="con-hirose2" urn="urn:adsk.eagle:library:40899389">
+<packages>
+<package name="HRS_DF12NB(3.0)-10DP-0.5V" urn="urn:adsk.eagle:footprint:40899390/2" library_version="5">
+<rectangle x1="-2.35" y1="-1" x2="2.35" y2="1" layer="41"/>
+<rectangle x1="-2.35" y1="-1" x2="2.35" y2="1" layer="43"/>
+<rectangle x1="-0.2" y1="0.95" x2="0.2" y2="2.65" layer="29"/>
+<rectangle x1="-0.2" y1="-2.65" x2="0.2" y2="-0.95" layer="29"/>
+<rectangle x1="0.3" y1="0.95" x2="0.7" y2="2.65" layer="29"/>
+<rectangle x1="0.8" y1="0.95" x2="1.2" y2="2.65" layer="29"/>
+<rectangle x1="-0.7" y1="0.95" x2="-0.3" y2="2.65" layer="29"/>
+<rectangle x1="-1.2" y1="0.95" x2="-0.8" y2="2.65" layer="29"/>
+<rectangle x1="0.3" y1="-2.65" x2="0.7" y2="-0.95" layer="29"/>
+<rectangle x1="0.8" y1="-2.65" x2="1.2" y2="-0.95" layer="29"/>
+<rectangle x1="-0.7" y1="-2.65" x2="-0.3" y2="-0.95" layer="29"/>
+<rectangle x1="-1.2" y1="-2.65" x2="-0.8" y2="-0.95" layer="29"/>
+<rectangle x1="-0.14" y1="1.4" x2="0.14" y2="2.6" layer="31"/>
+<rectangle x1="0.36" y1="1.4" x2="0.64" y2="2.6" layer="31"/>
+<rectangle x1="0.86" y1="1.4" x2="1.14" y2="2.6" layer="31"/>
+<rectangle x1="-0.64" y1="1.4" x2="-0.36" y2="2.6" layer="31"/>
+<rectangle x1="-1.14" y1="1.4" x2="-0.86" y2="2.6" layer="31"/>
+<rectangle x1="-0.14" y1="-2.6" x2="0.14" y2="-1.4" layer="31"/>
+<rectangle x1="0.36" y1="-2.6" x2="0.64" y2="-1.4" layer="31"/>
+<rectangle x1="0.86" y1="-2.6" x2="1.14" y2="-1.4" layer="31"/>
+<rectangle x1="-0.64" y1="-2.6" x2="-0.36" y2="-1.4" layer="31"/>
+<rectangle x1="-1.14" y1="-2.6" x2="-0.86" y2="-1.4" layer="31"/>
+<wire x1="-2.35" y1="-1.9" x2="-2.35" y2="1.9" width="0.127" layer="51"/>
+<wire x1="-2.35" y1="1.9" x2="2.35" y2="1.9" width="0.127" layer="51"/>
+<wire x1="2.35" y1="1.9" x2="2.35" y2="-1.9" width="0.127" layer="51"/>
+<wire x1="2.35" y1="-1.9" x2="-2.35" y2="-1.9" width="0.127" layer="51"/>
+<wire x1="-2.35" y1="1.22" x2="-2.35" y2="1.9" width="0.127" layer="21"/>
+<wire x1="-2.35" y1="-1.9" x2="-2.35" y2="-1.22" width="0.127" layer="21"/>
+<wire x1="-2.35" y1="1.9" x2="-1.47" y2="1.9" width="0.127" layer="21"/>
+<wire x1="1.47" y1="1.9" x2="2.35" y2="1.9" width="0.127" layer="21"/>
+<wire x1="2.35" y1="1.9" x2="2.35" y2="1.22" width="0.127" layer="21"/>
+<wire x1="2.35" y1="-1.9" x2="2.35" y2="-1.22" width="0.127" layer="21"/>
+<wire x1="-1.47" y1="-1.9" x2="-2.35" y2="-1.9" width="0.127" layer="21"/>
+<wire x1="2.35" y1="-1.9" x2="1.47" y2="-1.9" width="0.127" layer="21"/>
+<wire x1="-3.4" y1="2.85" x2="-3.4" y2="-2.85" width="0.05" layer="39"/>
+<wire x1="-3.4" y1="-2.85" x2="3.4" y2="-2.85" width="0.05" layer="39"/>
+<wire x1="3.4" y1="-2.85" x2="3.4" y2="2.85" width="0.05" layer="39"/>
+<wire x1="3.4" y1="2.85" x2="-3.4" y2="2.85" width="0.05" layer="39"/>
+<circle x="-1" y="-3.35" radius="0.1" width="0.2" layer="21"/>
+<circle x="-1" y="-3.35" radius="0.1" width="0.2" layer="51"/>
+<text x="-3.4" y="3.35" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.4" y="-3.85" size="1.27" layer="27" align="top-left">&gt;VALUE</text>
+<smd name="9" x="1" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="10" x="1" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="7" x="0.5" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="8" x="0.5" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="5" x="0" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="6" x="0" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="3" x="-0.5" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="4" x="-0.5" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-1" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="2" x="-1" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="S1" x="-2.75" y="0" dx="0.8" dy="1.8" layer="1"/>
+<smd name="S2" x="2.75" y="0" dx="0.8" dy="1.8" layer="1"/>
+</package>
+<package name="HRS_DF12NB(3.0)-10DS-0.5V" urn="urn:adsk.eagle:footprint:40903383/1" library_version="5">
+<rectangle x1="-2.35" y1="-1" x2="2.35" y2="1" layer="41"/>
+<rectangle x1="-2.3" y1="-1" x2="2.3" y2="1" layer="43"/>
+<rectangle x1="-0.2" y1="0.95" x2="0.2" y2="2.65" layer="29"/>
+<rectangle x1="-0.2" y1="-2.65" x2="0.2" y2="-0.95" layer="29"/>
+<rectangle x1="0.3" y1="0.95" x2="0.7" y2="2.65" layer="29"/>
+<rectangle x1="0.8" y1="0.95" x2="1.2" y2="2.65" layer="29"/>
+<rectangle x1="-0.7" y1="0.95" x2="-0.3" y2="2.65" layer="29"/>
+<rectangle x1="-1.2" y1="0.95" x2="-0.8" y2="2.65" layer="29"/>
+<rectangle x1="0.3" y1="-2.65" x2="0.7" y2="-0.95" layer="29"/>
+<rectangle x1="0.8" y1="-2.65" x2="1.2" y2="-0.95" layer="29"/>
+<rectangle x1="-0.7" y1="-2.65" x2="-0.3" y2="-0.95" layer="29"/>
+<rectangle x1="-1.2" y1="-2.65" x2="-0.8" y2="-0.95" layer="29"/>
+<rectangle x1="-0.14" y1="1.4" x2="0.14" y2="2.6" layer="31"/>
+<rectangle x1="0.36" y1="1.4" x2="0.64" y2="2.6" layer="31"/>
+<rectangle x1="0.86" y1="1.4" x2="1.14" y2="2.6" layer="31"/>
+<rectangle x1="-0.64" y1="1.4" x2="-0.36" y2="2.6" layer="31"/>
+<rectangle x1="-1.14" y1="1.4" x2="-0.86" y2="2.6" layer="31"/>
+<rectangle x1="-0.14" y1="-2.6" x2="0.14" y2="-1.4" layer="31"/>
+<rectangle x1="0.36" y1="-2.6" x2="0.64" y2="-1.4" layer="31"/>
+<rectangle x1="0.86" y1="-2.6" x2="1.14" y2="-1.4" layer="31"/>
+<rectangle x1="-0.64" y1="-2.6" x2="-0.36" y2="-1.4" layer="31"/>
+<rectangle x1="-1.14" y1="-2.6" x2="-0.86" y2="-1.4" layer="31"/>
+<wire x1="-2.35" y1="-1.9" x2="-2.35" y2="1.9" width="0.127" layer="51"/>
+<wire x1="-2.35" y1="1.9" x2="2.35" y2="1.9" width="0.127" layer="51"/>
+<wire x1="2.35" y1="1.9" x2="2.35" y2="-1.9" width="0.127" layer="51"/>
+<wire x1="2.35" y1="-1.9" x2="-2.35" y2="-1.9" width="0.127" layer="51"/>
+<wire x1="-2.35" y1="1.22" x2="-2.35" y2="1.9" width="0.127" layer="21"/>
+<wire x1="-2.35" y1="-1.9" x2="-2.35" y2="-1.22" width="0.127" layer="21"/>
+<wire x1="-2.35" y1="1.9" x2="-1.47" y2="1.9" width="0.127" layer="21"/>
+<wire x1="1.47" y1="1.9" x2="2.35" y2="1.9" width="0.127" layer="21"/>
+<wire x1="2.35" y1="1.9" x2="2.35" y2="1.22" width="0.127" layer="21"/>
+<wire x1="2.35" y1="-1.9" x2="2.35" y2="-1.22" width="0.127" layer="21"/>
+<wire x1="-1.47" y1="-1.9" x2="-2.35" y2="-1.9" width="0.127" layer="21"/>
+<wire x1="2.35" y1="-1.9" x2="1.47" y2="-1.9" width="0.127" layer="21"/>
+<wire x1="-3.4" y1="2.85" x2="-3.4" y2="-2.85" width="0.05" layer="39"/>
+<wire x1="-3.4" y1="-2.85" x2="3.4" y2="-2.85" width="0.05" layer="39"/>
+<wire x1="3.4" y1="-2.85" x2="3.4" y2="2.85" width="0.05" layer="39"/>
+<wire x1="3.4" y1="2.85" x2="-3.4" y2="2.85" width="0.05" layer="39"/>
+<circle x="-1" y="-3.35" radius="0.1" width="0.2" layer="21"/>
+<circle x="-1" y="-3.35" radius="0.1" width="0.2" layer="51"/>
+<text x="-3.4" y="3.35" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.4" y="-3.85" size="1.27" layer="27" align="top-left">&gt;VALUE</text>
+<smd name="9" x="1" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="10" x="1" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="7" x="0.5" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="8" x="0.5" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="5" x="0" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="6" x="0" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="3" x="-0.5" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="4" x="-0.5" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-1" y="-1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="2" x="-1" y="1.8" dx="0.3" dy="1.6" layer="1" stop="no" cream="no"/>
+<smd name="S1" x="-2.7" y="0" dx="0.8" dy="1.8" layer="1"/>
+<smd name="S2" x="2.7" y="0" dx="0.8" dy="1.8" layer="1"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="HRS_DF12NB(3.0)-10DP-0.5V(51)" urn="urn:adsk.eagle:package:40899392/3" type="model" library_version="5">
+<packageinstances>
+<packageinstance name="HRS_DF12NB(3.0)-10DP-0.5V"/>
+</packageinstances>
+</package3d>
+<package3d name="HRS_DF12NB(3.0)-10DS-0.5V" urn="urn:adsk.eagle:package:40903384/2" type="model" library_version="5">
+<packageinstances>
+<packageinstance name="HRS_DF12NB(3.0)-10DS-0.5V"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="DF12NB(3.0)-10DP-0.5V" urn="urn:adsk.eagle:symbol:40899391/2" library_version="5">
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="5.08" x2="-5.715" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-5.715" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="0" x2="-5.715" y2="0" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-5.715" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="-5.715" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="5.715" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="5.715" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="5.715" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="5.715" y2="2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="5.715" y2="5.08" width="0.254" layer="94"/>
+<text x="-7.62" y="8.382" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-6.985" y1="4.7625" x2="-5.3975" y2="5.3975" layer="94"/>
+<rectangle x1="-6.985" y1="2.2225" x2="-5.3975" y2="2.8575" layer="94"/>
+<rectangle x1="-6.985" y1="-0.3175" x2="-5.3975" y2="0.3175" layer="94"/>
+<rectangle x1="-6.985" y1="-2.8575" x2="-5.3975" y2="-2.2225" layer="94"/>
+<rectangle x1="-6.985" y1="-5.3975" x2="-5.3975" y2="-4.7625" layer="94"/>
+<rectangle x1="5.3975" y1="-5.3975" x2="6.985" y2="-4.7625" layer="94" rot="R180"/>
+<rectangle x1="5.3975" y1="-2.8575" x2="6.985" y2="-2.2225" layer="94" rot="R180"/>
+<rectangle x1="5.3975" y1="-0.3175" x2="6.985" y2="0.3175" layer="94" rot="R180"/>
+<rectangle x1="5.3975" y1="2.2225" x2="6.985" y2="2.8575" layer="94" rot="R180"/>
+<rectangle x1="5.3975" y1="4.7625" x2="6.985" y2="5.3975" layer="94" rot="R180"/>
+<pin name="1" x="-12.7" y="5.08" length="middle" direction="pas"/>
+<pin name="2" x="12.7" y="5.08" length="middle" direction="pas" rot="R180"/>
+<pin name="3" x="-12.7" y="2.54" length="middle" direction="pas"/>
+<pin name="4" x="12.7" y="2.54" length="middle" direction="pas" rot="R180"/>
+<pin name="5" x="-12.7" y="0" length="middle" direction="pas"/>
+<pin name="6" x="12.7" y="0" length="middle" direction="pas" rot="R180"/>
+<pin name="7" x="-12.7" y="-2.54" length="middle" direction="pas"/>
+<pin name="8" x="12.7" y="-2.54" length="middle" direction="pas" rot="R180"/>
+<pin name="9" x="-12.7" y="-5.08" length="middle" direction="pas"/>
+<pin name="10" x="12.7" y="-5.08" length="middle" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DF12NB(3.0)-10DX-0.5V" urn="urn:adsk.eagle:component:40899393/4" prefix="J" library_version="5">
+<description> &lt;a href="https://pricing.snapeda.com/parts/DF12NB%283.0%29-10DP-0.5V%2851%29/Hirose/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="DF12NB(3.0)-10DP-0.5V" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="HRS_DF12NB(3.0)-10DP-0.5V">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="10" pad="10"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="9" pad="9"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:40899392/3"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="DESCRIPTION" value=" 10 Position Connector Header, Outer Shroud Contacts Surface Mount Gold "/>
+<attribute name="MF" value="Hirose"/>
+<attribute name="MP" value="DF12NB(3.0)-10DP-0.5V(51)"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
+<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search?q=DF12NB(3.0)-10DP-0.5V(51)&amp;ref=eda"/>
+</technology>
+</technologies>
+</device>
+<device name="HRS_DF12NB(3.0)-10DS-0.5V" package="HRS_DF12NB(3.0)-10DS-0.5V">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="10" pad="10"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="9" pad="9"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:40903384/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -8323,8 +8549,11 @@ Source: AVX .. aphvc.pdf</description>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
+<part name="J1" library="con-hirose2" library_urn="urn:adsk.eagle:library:40899389" deviceset="DF12NB(3.0)-10DX-0.5V" device="HRS_DF12NB(3.0)-10DS-0.5V" package3d_urn="urn:adsk.eagle:package:40903384/2"/>
+<part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8383,11 +8612,20 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="GND3" gate="1" x="180.34" y="101.6" smashed="yes">
 <attribute name="VALUE" x="177.8" y="99.06" size="1.778" layer="96"/>
 </instance>
-<instance part="GND4" gate="1" x="88.9" y="76.2" smashed="yes">
-<attribute name="VALUE" x="86.36" y="73.66" size="1.778" layer="96"/>
+<instance part="P+4" gate="1" x="142.24" y="93.98" smashed="yes">
+<attribute name="VALUE" x="139.7" y="88.9" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="P+4" gate="1" x="88.9" y="91.44" smashed="yes">
-<attribute name="VALUE" x="86.36" y="86.36" size="1.778" layer="96" rot="R90"/>
+<instance part="J1" gate="G$1" x="127" y="83.82" smashed="yes">
+<attribute name="NAME" x="119.38" y="92.202" size="1.778" layer="95"/>
+</instance>
+<instance part="GND5" gate="1" x="111.76" y="73.66" smashed="yes">
+<attribute name="VALUE" x="109.22" y="71.12" size="1.778" layer="96"/>
+</instance>
+<instance part="GND6" gate="1" x="142.24" y="73.66" smashed="yes">
+<attribute name="VALUE" x="139.7" y="71.12" size="1.778" layer="96"/>
+</instance>
+<instance part="P+5" gate="1" x="111.76" y="93.98" smashed="yes">
+<attribute name="VALUE" x="109.22" y="88.9" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -8430,8 +8668,15 @@ Source: AVX .. aphvc.pdf</description>
 </segment>
 <segment>
 <pinref part="P+4" gate="1" pin="+5V"/>
-<wire x1="78.74" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="86.36" x2="88.9" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="88.9" x2="142.24" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="88.9" x2="142.24" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="114.3" y1="88.9" x2="111.76" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="88.9" x2="111.76" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="P+5" gate="1" pin="+5V"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -8481,9 +8726,16 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="180.34" y1="104.14" x2="180.34" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="78.74" y1="81.28" x2="88.9" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="81.28" x2="88.9" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="9"/>
+<wire x1="114.3" y1="78.74" x2="111.76" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="78.74" x2="111.76" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="10"/>
+<wire x1="139.7" y1="78.74" x2="142.24" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="78.74" x2="142.24" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -8517,8 +8769,27 @@ Source: AVX .. aphvc.pdf</description>
 <label x="185.42" y="119.38" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<wire x1="78.74" y1="83.82" x2="88.9" y2="83.82" width="0.1524" layer="91"/>
-<label x="88.9" y="83.82" size="1.27" layer="95" xref="yes"/>
+<label x="111.76" y="86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="J1" gate="G$1" pin="3"/>
+<wire x1="114.3" y1="86.36" x2="111.76" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="4"/>
+<wire x1="139.7" y1="86.36" x2="142.24" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="6"/>
+<wire x1="139.7" y1="83.82" x2="142.24" y2="83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="8"/>
+<wire x1="139.7" y1="81.28" x2="142.24" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
