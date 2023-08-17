@@ -1542,16 +1542,16 @@ Updated by Ella Wu 2022-05-09&lt;br&gt;
 <rectangle x1="3.51" y1="0" x2="4.11" y2="1.15" layer="21"/>
 <rectangle x1="-4.11" y1="0" x2="-3.51" y2="1.15" layer="21"/>
 </package>
-<package name="P-1X4/90-2.54X1.50MMX2.54MM-SMT" urn="urn:adsk.eagle:footprint:40964636/2" library_version="16">
-<smd name="1" x="-3.81" y="4.02" dx="2.5" dy="1.02" layer="1" rot="R90"/>
-<smd name="2" x="-1.27" y="4.02" dx="2.5" dy="1.02" layer="1" rot="R90"/>
-<smd name="3" x="1.27" y="4.02" dx="2.5" dy="1.02" layer="1" rot="R90"/>
-<smd name="4" x="3.81" y="4.02" dx="2.5" dy="1.02" layer="1" rot="R90"/>
-<rectangle x1="-4.13" y1="1.25" x2="-3.49" y2="5.02" layer="51"/>
+<package name="P-1X4/90-2.54X1.50MMX2.54MM-SMT" urn="urn:adsk.eagle:footprint:40964636/4" library_version="21">
+<smd name="1" x="-3.81" y="5" dx="3" dy="1.02" layer="1" rot="R90"/>
+<smd name="2" x="-1.27" y="5" dx="3" dy="1.02" layer="1" rot="R90"/>
+<smd name="3" x="1.27" y="5" dx="3" dy="1.02" layer="1" rot="R90"/>
+<smd name="4" x="3.81" y="5" dx="3" dy="1.02" layer="1" rot="R90"/>
+<rectangle x1="-4.13" y1="1.25" x2="-3.49" y2="6.25" layer="51"/>
 <rectangle x1="-4.13" y1="-8.37" x2="-3.49" y2="-1.25" layer="21"/>
-<rectangle x1="-1.59" y1="1.25" x2="-0.95" y2="5.02" layer="51"/>
-<rectangle x1="3.49" y1="1.25" x2="4.13" y2="5.02" layer="51"/>
-<rectangle x1="0.95" y1="1.25" x2="1.59" y2="5.02" layer="51"/>
+<rectangle x1="-1.59" y1="1.25" x2="-0.95" y2="6.25" layer="51"/>
+<rectangle x1="3.49" y1="1.25" x2="4.13" y2="6.25" layer="51"/>
+<rectangle x1="0.95" y1="1.25" x2="1.59" y2="6.25" layer="51"/>
 <rectangle x1="-1.59" y1="-8.37" x2="-0.95" y2="-1.25" layer="21"/>
 <rectangle x1="0.95" y1="-8.37" x2="1.59" y2="-1.25" layer="21"/>
 <rectangle x1="3.49" y1="-8.37" x2="4.13" y2="-1.25" layer="21"/>
@@ -1571,7 +1571,7 @@ Updated by Ella Wu 2022-05-09&lt;br&gt;
 <packageinstance name="S-1X4/90-2.54MM-SMT"/>
 </packageinstances>
 </package3d>
-<package3d name="P-1X4/90-2.54X1.50MMX2.54MM-SMT" urn="urn:adsk.eagle:package:40964637/4" type="model" library_version="16">
+<package3d name="P-1X4/90-2.54X1.50MMX2.54MM-SMT" urn="urn:adsk.eagle:package:40964637/6" type="model" library_version="21">
 <packageinstances>
 <packageinstance name="P-1X4/90-2.54X1.50MMX2.54MM-SMT"/>
 </packageinstances>
@@ -1613,7 +1613,7 @@ Updated by Ella Wu 2022-05-09&lt;br&gt;
 </device>
 </devices>
 </deviceset>
-<deviceset name="BG080-04" urn="urn:adsk.eagle:component:40964674/1" library_version="16">
+<deviceset name="BG080-04" urn="urn:adsk.eagle:component:40964674/3" library_version="21">
 <gates>
 <gate name="G$1" symbol="PINHD4" x="0" y="0"/>
 </gates>
@@ -1626,7 +1626,7 @@ Updated by Ella Wu 2022-05-09&lt;br&gt;
 <connect gate="G$1" pin="4" pad="4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:40964637/4"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:40964637/6"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -11086,10 +11086,10 @@ www.irf.com&lt;p&gt;
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="4.7uF"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="3k"/>
-<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="3k"/>
+<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1.8k"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="3k"/>
+<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="4.7uF"/>
 <part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="1uF"/>
@@ -11103,18 +11103,18 @@ www.irf.com&lt;p&gt;
 <part name="+3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U$2" library="texas-instruments" library_urn="urn:adsk.eagle:library:17599867" deviceset="TPS6214X" device="" package3d_urn="urn:adsk.eagle:package:17599869/5"/>
-<part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
-<part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
+<part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
+<part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="3.3nF"/>
 <part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
-<part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="3k"/>
+<part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100k"/>
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U$4" library="inductor-vishay" library_urn="urn:adsk.eagle:library:17602353" deviceset="IHLP-1212" device="" package3d_urn="urn:adsk.eagle:package:17602355/2"/>
-<part name="U$6" library="ebyte" library_urn="urn:adsk.eagle:library:37267152" deviceset="E32-X00M20S" device="" package3d_urn="urn:adsk.eagle:package:40900532/2"/>
-<part name="U$9" library="ebyte" library_urn="urn:adsk.eagle:library:37267152" deviceset="E32-X00M20S" device="" package3d_urn="urn:adsk.eagle:package:40900532/2"/>
+<part name="LORA2" library="ebyte" library_urn="urn:adsk.eagle:library:37267152" deviceset="E32-X00M20S" device="" package3d_urn="urn:adsk.eagle:package:40900532/2"/>
+<part name="LORA1" library="ebyte" library_urn="urn:adsk.eagle:library:37267152" deviceset="E32-X00M20S" device="" package3d_urn="urn:adsk.eagle:package:40900532/2"/>
 <part name="J2" library="con-hirose2" library_urn="urn:adsk.eagle:library:40899389" deviceset="DF12NB(3.0)-10DP-0.5V" device="" package3d_urn="urn:adsk.eagle:package:40899392/3"/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -11139,7 +11139,7 @@ www.irf.com&lt;p&gt;
 <part name="GND25" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="U$3" library="con-gct" library_urn="urn:adsk.eagle:library:35910089" deviceset="BG080-04" device="" package3d_urn="urn:adsk.eagle:package:40964637/4"/>
+<part name="U$3" library="con-gct" library_urn="urn:adsk.eagle:library:35910089" deviceset="BG080-04" device="" package3d_urn="urn:adsk.eagle:package:40964637/6"/>
 <part name="GND23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="33R"/>
 </parts>
@@ -11147,6 +11147,7 @@ www.irf.com&lt;p&gt;
 <sheet>
 <description>Logic</description>
 <plain>
+<text x="166.37" y="89.916" size="1.778" layer="96" rot="R180">2.2uH</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="231.14" y="185.42" smashed="yes"/>
@@ -11294,11 +11295,10 @@ www.irf.com&lt;p&gt;
 <attribute name="VALUE" x="167.64" y="55.88" size="1.778" layer="96"/>
 </instance>
 <instance part="U$4" gate="G$1" x="162.56" y="91.44" smashed="yes" rot="R90">
-<attribute name="NAME" x="166.37" y="89.9414" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="166.37" y="94.742" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="U$6" gate="G$1" x="40.64" y="187.96" smashed="yes"/>
-<instance part="U$9" gate="G$1" x="40.64" y="149.86" smashed="yes"/>
+<instance part="LORA2" gate="G$1" x="40.64" y="187.96" smashed="yes"/>
+<instance part="LORA1" gate="G$1" x="40.64" y="149.86" smashed="yes"/>
 <instance part="J2" gate="G$1" x="223.52" y="83.82" smashed="yes">
 <attribute name="NAME" x="215.9" y="92.202" size="1.778" layer="95"/>
 </instance>
@@ -11499,7 +11499,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="154.94" x2="22.86" y2="154.94" width="0.1524" layer="91"/>
 <label x="22.86" y="154.94" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$9" gate="G$1" pin="SCK"/>
+<pinref part="LORA1" gate="G$1" pin="SCK"/>
 </segment>
 </net>
 <net name="LORA2_MISO" class="0">
@@ -11511,7 +11511,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="187.96" x2="22.86" y2="187.96" width="0.1524" layer="91"/>
 <label x="22.86" y="187.96" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="MISO"/>
+<pinref part="LORA2" gate="G$1" pin="MISO"/>
 </segment>
 </net>
 <net name="LORA2_MOSI" class="0">
@@ -11523,7 +11523,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="190.5" x2="22.86" y2="190.5" width="0.1524" layer="91"/>
 <label x="22.86" y="190.5" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="MOSI"/>
+<pinref part="LORA2" gate="G$1" pin="MOSI"/>
 </segment>
 </net>
 <net name="LORA2_SCK" class="0">
@@ -11535,7 +11535,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="193.04" x2="22.86" y2="193.04" width="0.1524" layer="91"/>
 <label x="22.86" y="193.04" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="SCK"/>
+<pinref part="LORA2" gate="G$1" pin="SCK"/>
 </segment>
 </net>
 <net name="LORA1_MOSI" class="0">
@@ -11547,7 +11547,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="152.4" x2="22.86" y2="152.4" width="0.1524" layer="91"/>
 <label x="22.86" y="152.4" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$9" gate="G$1" pin="MOSI"/>
+<pinref part="LORA1" gate="G$1" pin="MOSI"/>
 </segment>
 </net>
 <net name="LORA1_MISO" class="0">
@@ -11559,7 +11559,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="149.86" x2="22.86" y2="149.86" width="0.1524" layer="91"/>
 <label x="22.86" y="149.86" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$9" gate="G$1" pin="MISO"/>
+<pinref part="LORA1" gate="G$1" pin="MISO"/>
 </segment>
 </net>
 <net name="USB_GND" class="0">
@@ -11599,9 +11599,9 @@ www.irf.com&lt;p&gt;
 <label x="99.06" y="15.24" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<wire x1="132.08" y1="27.94" x2="124.46" y2="27.94" width="0.1524" layer="91"/>
-<label x="124.46" y="27.94" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$3" gate="G$1" pin="1"/>
+<pinref part="U$3" gate="G$1" pin="4"/>
+<wire x1="132.08" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
+<label x="124.46" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="USB_D-" class="0">
@@ -11616,9 +11616,9 @@ www.irf.com&lt;p&gt;
 <label x="40.64" y="17.78" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
+<pinref part="U$3" gate="G$1" pin="2"/>
 <wire x1="132.08" y1="25.4" x2="124.46" y2="25.4" width="0.1524" layer="91"/>
 <label x="124.46" y="25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$3" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="USB_D+" class="0">
@@ -11633,9 +11633,9 @@ www.irf.com&lt;p&gt;
 <label x="76.2" y="17.78" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
+<pinref part="U$3" gate="G$1" pin="3"/>
 <wire x1="132.08" y1="22.86" x2="124.46" y2="22.86" width="0.1524" layer="91"/>
 <label x="124.46" y="22.86" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$3" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -11674,9 +11674,9 @@ www.irf.com&lt;p&gt;
 <label x="40.64" y="25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<wire x1="132.08" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
-<label x="124.46" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$3" gate="G$1" pin="4"/>
+<pinref part="U$3" gate="G$1" pin="1"/>
+<wire x1="132.08" y1="27.94" x2="124.46" y2="27.94" width="0.1524" layer="91"/>
+<label x="124.46" y="27.94" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -11768,7 +11768,7 @@ www.irf.com&lt;p&gt;
 <pinref part="C8" gate="G$1" pin="2"/>
 <pinref part="GND11" gate="1" pin="GND"/>
 <wire x1="60.96" y1="132.08" x2="60.96" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="U$9" gate="G$1" pin="GND"/>
+<pinref part="LORA1" gate="G$1" pin="GND"/>
 <wire x1="55.88" y1="137.16" x2="58.42" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="137.16" x2="58.42" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="132.08" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
@@ -11781,7 +11781,7 @@ www.irf.com&lt;p&gt;
 <wire x1="58.42" y1="170.18" x2="60.96" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 <junction x="60.96" y="170.18"/>
-<pinref part="U$6" gate="G$1" pin="GND"/>
+<pinref part="LORA2" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="DEV"/>
@@ -11916,7 +11916,7 @@ www.irf.com&lt;p&gt;
 <wire x1="60.96" y1="180.34" x2="60.96" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="177.8" x2="60.96" y2="177.8" width="0.1524" layer="91"/>
 <junction x="60.96" y="177.8"/>
-<pinref part="U$6" gate="G$1" pin="VCC"/>
+<pinref part="LORA2" gate="G$1" pin="VCC"/>
 </segment>
 <segment>
 <pinref part="C13" gate="G$1" pin="1"/>
@@ -11969,7 +11969,7 @@ www.irf.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="C8" gate="G$1" pin="1"/>
-<pinref part="U$9" gate="G$1" pin="VCC"/>
+<pinref part="LORA1" gate="G$1" pin="VCC"/>
 <wire x1="60.96" y1="139.7" x2="55.88" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="+3V9" gate="G$1" pin="+3V3"/>
 <wire x1="60.96" y1="139.7" x2="60.96" y2="142.24" width="0.1524" layer="91"/>
@@ -12077,7 +12077,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="144.78" x2="22.86" y2="144.78" width="0.1524" layer="91"/>
 <label x="22.86" y="144.78" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$9" gate="G$1" pin="NRST"/>
+<pinref part="LORA1" gate="G$1" pin="NRST"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PA4"/>
@@ -12089,7 +12089,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="157.48" x2="22.86" y2="157.48" width="0.1524" layer="91"/>
 <label x="22.86" y="157.48" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$9" gate="G$1" pin="NSS"/>
+<pinref part="LORA1" gate="G$1" pin="NSS"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PA8"/>
@@ -12101,7 +12101,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="55.88" y1="162.56" x2="58.42" y2="162.56" width="0.1524" layer="91"/>
 <label x="58.42" y="162.56" size="1.27" layer="95" xref="yes"/>
-<pinref part="U$9" gate="G$1" pin="DIO0"/>
+<pinref part="LORA1" gate="G$1" pin="DIO0"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PA15"/>
@@ -12113,7 +12113,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="177.8" x2="22.86" y2="177.8" width="0.1524" layer="91"/>
 <label x="22.86" y="177.8" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="RXEN"/>
+<pinref part="LORA2" gate="G$1" pin="RXEN"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PB9"/>
@@ -12125,7 +12125,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="175.26" x2="22.86" y2="175.26" width="0.1524" layer="91"/>
 <label x="22.86" y="175.26" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="TXEN"/>
+<pinref part="LORA2" gate="G$1" pin="TXEN"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PB8"/>
@@ -12137,7 +12137,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="55.88" y1="200.66" x2="58.42" y2="200.66" width="0.1524" layer="91"/>
 <label x="58.42" y="200.66" size="1.27" layer="95" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="DIO0"/>
+<pinref part="LORA2" gate="G$1" pin="DIO0"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PB11"/>
@@ -12149,7 +12149,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="195.58" x2="22.86" y2="195.58" width="0.1524" layer="91"/>
 <label x="22.86" y="195.58" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="NSS"/>
+<pinref part="LORA2" gate="G$1" pin="NSS"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PB13"/>
@@ -12161,7 +12161,7 @@ www.irf.com&lt;p&gt;
 <segment>
 <wire x1="25.4" y1="182.88" x2="22.86" y2="182.88" width="0.1524" layer="91"/>
 <label x="22.86" y="182.88" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$6" gate="G$1" pin="NRST"/>
+<pinref part="LORA2" gate="G$1" pin="NRST"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="PB12"/>
@@ -12192,7 +12192,7 @@ www.irf.com&lt;p&gt;
 </net>
 <net name="LORA1_RXEN" class="0">
 <segment>
-<pinref part="U$9" gate="G$1" pin="RXEN"/>
+<pinref part="LORA1" gate="G$1" pin="RXEN"/>
 <wire x1="25.4" y1="139.7" x2="22.86" y2="139.7" width="0.1524" layer="91"/>
 <label x="22.86" y="139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -12204,7 +12204,7 @@ www.irf.com&lt;p&gt;
 </net>
 <net name="LORA1_TXEN" class="0">
 <segment>
-<pinref part="U$9" gate="G$1" pin="TXEN"/>
+<pinref part="LORA1" gate="G$1" pin="TXEN"/>
 <wire x1="25.4" y1="137.16" x2="22.86" y2="137.16" width="0.1524" layer="91"/>
 <label x="22.86" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>

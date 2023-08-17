@@ -1,0 +1,48 @@
+Partlist
+
+Exported from trx-mainboard.brd at 12.08.2023 12:40
+
+EAGLE Version 9.6.2 Copyright (c) 1988-2020 Autodesk, Inc.
+
+Assembly variant: 
+
+Part     Value                 Package                         Library                 Position (mm)         Orientation
+
+C1       100nF                 C0805                           rcl                     (47.5 45)             R270
+C2       100nF                 C0805                           rcl                     (32.5 45)             R270
+C3       100nF                 C0805                           rcl                     (32.5 40)             R90
+C4       4.7uF                 C0805                           rcl                     (47.5 40)             R90
+C5       4.7uF                 C0805                           rcl                     (58 30)               R270
+C6       4.7uF                 C0805                           rcl                     (51 45)               R90
+C7       1uF                   C0805                           rcl                     (61.5 35)             R270
+C8       4.7uF                 C0805                           rcl                     (28.286 41.5)         MR90
+C9       100nF                 C0805                           rcl                     (59 75)               R90
+C10      4.7uF                 C0805                           rcl                     (69.286 41.5)         MR90
+C11      10uF                  C0805                           rcl                     (61.5 40)             R90
+C12      3.3nF                 C0805                           rcl                     (54.5 45)             R270
+C13      100nF                 C0805                           rcl                     (58 45)               R90
+C14      100nF                 C0805                           rcl                     (36 35)               R270
+C15      100nF                 C0805                           rcl                     (32.5 35)             R90
+F1       1206L                 1206L                           ptc-littlefuse          (81.5 11)             MR180
+J1       629722000214          629722000214                    Wurth_Connectors_WR-USB (6.2056 8.6579)       MR60
+J2       DF12NB(3.0)-10DP-0.5V HRS_DF12NB(3.0)-10DP-0.5V       con-hirose2             (48.786 33.5)         R180
+JP1                            1X04SMD                         pinhead2                (46.246 8.5)          R0
+LORA1    E32-X00M20S           E32-X00M20S                     ebyte                   (59.286 49.5)         MR0
+LORA2    E32-X00M20S           E32-X00M20S                     ebyte                   (38.286 49.5)         MR0
+P1       S2B-PH-SM4-TB         JST_S2B-PH-SM4-TB               con-jst2                (78 18)               MR90
+Q1       BSS84                 SOT23                           transistor-small-signal (42.5 30)             R180
+R1       5.1k                  R0805                           rcl                     (8 19.5)              MR150
+R2       5.1k                  R0805                           rcl                     (17 6)                MR330
+R3       3k                    R0805                           rcl                     (61.5 30)             R90
+R4       1.8k                  R0805                           rcl                     (54.5 30)             R90
+R5       10k                   R0805                           rcl                     (43 35)               R270
+R6       100k                  R0805                           rcl                     (61.5 45)             R270
+R7       33R                   R0805                           rcl                     (39.5 35)             R90
+U$1      L86-M33               L86-M33                         quectel                 (48.405 74.268)       MR0
+U$2      TPS6214X              VQFN16-3X3                      texas-instruments       (56.5 40)             R0
+U$3      BG080-04              P-1X4/90-2.54X1.50MMX2.54MM-SMT con-gct                 (20.355 17.085)       R120
+U$4      IHLP-1212             1212BZ                          inductor-vishay         (51 40)               R90
+U$5      JDY-23                JDY-23                          bluetooth               (48.786 74)           R90
+U$10     STM32-F042X4/6-48     UFQFPN48-7X7                    st-microelectronics     (39.5 42.5)           R90
+U$11     BG230-04              S-1X4/90-2.54MM-SMT             con-gct                 (28.816 21.97)        R300
+U2       BQ2407X               VQFN16-3X3                      texas-instruments       (56.5 35)             R0

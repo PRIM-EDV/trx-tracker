@@ -8,3 +8,12 @@
 *.l$?
 *.job
 *.pro
+
+*.zip
+
+# Modm
+firmware/modm
+firmware/build
+firmware/Sconstruct
+firmware/project.xml.log
+firmware/.sconsign.dblites
