@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-/* Copyright (c) 2022, Lucas Mösch
+/* Copyright (c) 2023, Lucas Mösch
  * All Rights Reserved.
  */
 // ----------------------------------------------------------------------------
@@ -9,10 +9,22 @@
 namespace Board
 {
 
-namespace rpi
+namespace gps
 {
-    modm::IODeviceWrapper<Uart, modm::IOBuffer::DiscardIfFull> rpiIODevice;
-	modm::IOStream ioStream(rpiIODevice);
+    modm::IODeviceWrapper<Uart, modm::IOBuffer::DiscardIfFull> IODevice;
+	modm::IOStream ioStream(IODevice);
+}
+
+namespace bluetooth
+{
+    modm::IODeviceWrapper<Uart, modm::IOBuffer::DiscardIfFull> IODevice;
+	modm::IOStream ioStream(IODevice);
+}
+
+namespace usb 
+{
+    modm::IODeviceWrapper<UsbUart0, modm::IOBuffer::BlockIfFull> usb_io_device;
+    modm::IOStream usb_stream(usb_io_device);
 }
 
 }

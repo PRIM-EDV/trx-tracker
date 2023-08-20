@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-/* Copyright (c) 2021, Lucas Moesch
+/* Copyright (c) 2023, Lucas Moesch
  * All Rights Reserved.
  */
 // ----------------------------------------------------------------------------
@@ -34,13 +34,17 @@ struct SystemClock
 	static constexpr int Spi1 = Frequency;
 	static constexpr int Spi2 = Frequency;
 
+    // Usb
+    static constexpr uint32_t Usb = Ahb;
+
 	static bool inline
 	enable()
 	{
 		Rcc::enableInternalClock(); // 8 MHz
         const Rcc::PllFactors pllFactors{
 			.pllMul = 12,
-			.pllPrediv = 2
+			.pllPrediv = 2,
+            .usbPrediv = Rcc::UsbPrescaler::Div1
 		};
         Rcc::enablePll(Rcc::PllSource::InternalClock, pllFactors);
 		// set flash latency for 48MHz
@@ -57,30 +61,36 @@ struct SystemClock
 };
 
 namespace lora1 {
-	using Rst = GpioOutputA2;
-	using D0 = GpioInputA3;
+	using Rst = GpioOutputA4;
+	using D0 = GpioInputA15;
 
-	using Nss = GpioOutputA4;
+	using Nss = GpioOutputA8;
 	using Sck = GpioOutputA5;
 	using Miso = GpioInputA6;
 	using Mosi = GpioOutputA7;
+
+    using RxEn = GpioOutputB7;
+    using TxEn = GpioOutputB6;
 
 	using Spi = SpiMaster1;
 }
 
 namespace lora2 {
-	using Rst = GpioOutputB11;
-	using D0 = GpioInputB12;
+	using Rst = GpioOutputB12;
+	using D0 = GpioInputB11;
 
 	using Nss = GpioOutputB13;
 	using Sck = GpioOutputB10;
 	using Miso = GpioInputB14;
 	using Mosi = GpioOutputB15;
 
+    using RxEn = GpioOutputB9;
+    using TxEn = GpioOutputB8;
+
 	using Spi = SpiMaster2;
 }
 
-namespace rpi
+namespace gps
 {
 	using Rx = GpioInputA10;
 	using Tx = GpioOutputA9;
@@ -88,7 +98,21 @@ namespace rpi
 	using Uart = Usart1;
 }
 
+namespace bluetooth
+{
+	using Rx = GpioInputA3;
+	using Tx = GpioOutputA2;
 
+	using Uart = Usart2;
+}
+
+namespace usb
+{
+    using Dm = GpioA11;
+    using Dp = GpioA12;
+
+    using Device = UsbFs;
+}
 
 inline void
 initialize()
@@ -114,8 +138,11 @@ initialize()
 	lora2::Spi::connect<lora2::Sck::Sck, lora2::Mosi::Mosi, lora2::Miso::Miso>();
 	lora2::Spi::initialize<SystemClock, 6000000ul>();
 
-	rpi::Uart::connect<rpi::Tx::Tx, rpi::Rx::Rx>();
-	rpi::Uart::initialize<SystemClock, 9600_Bd>();
+	// rpi::Uart::connect<rpi::Tx::Tx, rpi::Rx::Rx>();
+	// rpi::Uart::initialize<SystemClock, 9600_Bd>();
+
+    usb::Device::initialize<SystemClock>(3);
+	usb::Device::connect<usb::Dm::Dm, usb::Dp::Dp>();
 }
 
 }

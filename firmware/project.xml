@@ -7,7 +7,11 @@
     <option name="modm:build:openocd.cfg">conf/openocd.cfg</option>
     <option name="modm:platform:uart:1:buffer.rx">256</option>
     <option name="modm:platform:uart:1:buffer.tx">256</option>
+    <option name="modm:platform:uart:2:buffer.rx">256</option>
+    <option name="modm:platform:uart:2:buffer.tx">256</option>
     <option name="modm:target">stm32f042c6u6</option>
+    <option name="modm:processing:protothread:use_fiber">yes</option>
+    <option name="modm:tinyusb:config">device.cdc,device.cdc</option>
   </options>
   <modules>
     <module>modm:architecture:register</module>
@@ -16,6 +20,7 @@
     <module>modm:platform:core</module>
     <module>modm:platform:gpio</module>
     <module>modm:platform:uart:1</module>
+    <module>modm:platform:uart:2</module>
     <module>modm:platform:spi:1</module>
     <module>modm:platform:spi:2</module>
     <module>modm:processing:protothread</module>
@@ -23,7 +28,6 @@
     <module>modm:processing</module>
     <module>modm:build:scons</module>
     <module>modm:io</module>
-    <module>modm:printf</module>
-    <module>modm:nanopb</module>
+    <module>modm:tinyusb</module>
   </modules>
 </library>

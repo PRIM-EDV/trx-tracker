@@ -1,13 +1,10 @@
-#include <nanopb/pb_encode.h>
-#include <nanopb/pb_decode.h>
+#include <tusb.h>
+
 #include <modm/processing.hpp>
 #include <modm/processing/protothread.hpp>
 
 #include "board/board.hpp"
-#include "lib/cobs/cobs.hpp"
-// #include "lib/uuid/uuid.h"
-#include "protocol/protocol.pb.hpp"
-#include "src/threads/lora.hpp"
+// #include "src/threads/lora.hpp"
 
 using namespace Board;
 
@@ -16,9 +13,11 @@ using namespace Board;
 int main()
 {
     Board::initialize();
+    tusb_init();
 
     while (true)
     {
-
+        tud_task();
+        usb::usb_stream << "Hello World from USB: " << modm::endl;
     }
 }
