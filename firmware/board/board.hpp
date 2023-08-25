@@ -138,8 +138,11 @@ initialize()
 	lora2::Spi::connect<lora2::Sck::Sck, lora2::Mosi::Mosi, lora2::Miso::Miso>();
 	lora2::Spi::initialize<SystemClock, 6000000ul>();
 
-	// rpi::Uart::connect<rpi::Tx::Tx, rpi::Rx::Rx>();
-	// rpi::Uart::initialize<SystemClock, 9600_Bd>();
+	gps::Uart::connect<gps::Tx::Tx, gps::Rx::Rx>();
+	gps::Uart::initialize<SystemClock, 9600_Bd>();
+
+    bluetooth::Uart::connect<bluetooth::Tx::Tx, bluetooth::Rx::Rx>();
+    bluetooth::Uart::initialize<SystemClock, 9600_Bd>();
 
     usb::Device::initialize<SystemClock>(3);
 	usb::Device::connect<usb::Dm::Dm, usb::Dp::Dp>();

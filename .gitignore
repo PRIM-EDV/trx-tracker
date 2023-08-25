@@ -17,3 +17,6 @@ firmware/build
 firmware/Sconstruct
 firmware/project.xml.log
 firmware/.sconsign.dblite
+
+# VS Code
+.vscode

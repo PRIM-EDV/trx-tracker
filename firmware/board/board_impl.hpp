@@ -23,8 +23,8 @@ namespace bluetooth
 
 namespace usb 
 {
-    modm::IODeviceWrapper<UsbUart0, modm::IOBuffer::BlockIfFull> usb_io_device;
-    modm::IOStream usb_stream(usb_io_device);
+    modm::IODeviceWrapper<UsbUart0, modm::IOBuffer::BlockIfFull> IODevice;
+    modm::IOStream ioStream(IODevice);
 }
 
 }
