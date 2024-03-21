@@ -9,7 +9,7 @@
 
 using namespace Board;
 
-namespace Board::lora1 {
+namespace Board::lora2 {
     LoraThread<Spi, Nss, D0, RxEn, TxEn> thread;
 }
 
@@ -25,12 +25,40 @@ int main()
 {
     Board::initialize();
 
-    shared::trackerId = 1;
+    shared::trackerId = 7;
 
-    delay(1000ms); // Wait for BT-device
-    bluetooth::ioStream << "AT+NAMETRX-" << shared::trackerId << "\r\n";
+    GpioOutputA1::setOutput(); 
+    GpioOutputA1::set();
 
-    lora1::thread.initialize();
+    // Timer2::connect<GpioOutputA1::Ch2>();
+    // Timer2::connect<GpioOutputA5::Ch1>();
+    // Timer2::connect<GpioOutputB10::Ch3>();
+
+
+
+	// Timer2::enable();
+	// Timer2::setMode(Timer2::Mode::UpCounter);
+
+	// // 80 MHz / 800 / 2^16 ~ 1.5 Hz
+	// // Timer2::setPrescaler(320);
+	// Timer2::setOverflow(65535);
+
+
+	// Timer2::configureOutputChannel<GpioOutputA1::Ch2>(Timer2::OutputCompareMode::Pwm, 500);
+	// Timer2::configureOutputChannel<GpioOutputA5::Ch1>(Timer2::OutputCompareMode::Pwm, 450);
+	// Timer2::configureOutputChannel<GpioOutputB10::Ch3>(Timer2::OutputCompareMode::Pwm, 350);
+
+
+	// Timer2::applyAndReset();
+
+	// Timer2::start();
+
+    delay(5000ms); // Wait for BT-device
+
+    
+    // bluetooth::ioStream << "AT+NAMETRX-" << shared::trackerId << "\r\n";
+
+    lora2::thread.initialize();
     usb::thread.initialize();
     gps::thread.initialize();
 

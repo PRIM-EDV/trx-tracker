@@ -30,5 +30,6 @@
     <module>modm:build:scons</module>
     <module>modm:io</module>
     <module>modm:tinyusb</module>
+    <module>modm:platform:timer:2</module>
   </modules>
 </library>

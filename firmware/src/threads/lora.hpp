@@ -25,7 +25,7 @@ public:
     initialize()
     {
         RF_CALL_BLOCKING(modem.setLora());
-        RF_CALL_BLOCKING(modem.setCarrierFreq(0x6f, 0x00, 0x12));
+        RF_CALL_BLOCKING(modem.setCarrierFreq(0xd9, 0x5d, 0x9a)); // 869.465 MHz - FSTEP = 61.035 Hz
         RF_CALL_BLOCKING(modem.setPaBoost());
         RF_CALL_BLOCKING(modem.setAgcAutoOn());
         RF_CALL_BLOCKING(modem.setExplicitHeaderMode());
@@ -49,6 +49,11 @@ public:
     {
         PT_BEGIN();
 
+        data[0] = 0;
+        data[1] = 0;
+        data[2] = 0;
+        data[3] = 0;
+
         while (1) {
             PT_WAIT_UNTIL(timeout.isExpired() || messageAvailable());
 
@@ -61,6 +66,7 @@ public:
             
             if(timeout.isExpired()){
                 RF_CALL(sendMessage());
+                RF_CALL(modem.read(sx127x::Address::FrMsb, data, 1));
                 Board::bluetooth::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
                 Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
                 timeout.restart(5s);

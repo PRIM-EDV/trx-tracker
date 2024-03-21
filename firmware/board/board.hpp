@@ -60,32 +60,17 @@ struct SystemClock
 	}
 };
 
-namespace lora1 {
-	using Rst = GpioOutputA4;
-	using D0 = GpioInputA15;
-
-	using Nss = GpioOutputA8;
-	using Sck = GpioOutputA5;
-	using Miso = GpioInputA6;
-	using Mosi = GpioOutputA7;
-
-    using RxEn = GpioOutputB7;
-    using TxEn = GpioOutputB6;
-
-	using Spi = SpiMaster1;
-}
-
 namespace lora2 {
-	using Rst = GpioOutputB12;
+	using Rst = GpioOutputA8;
 	using D0 = GpioInputB11;
 
-	using Nss = GpioOutputB13;
-	using Sck = GpioOutputB10;
+	using Nss = GpioOutputB12;
+	using Sck = GpioOutputB13;
 	using Miso = GpioInputB14;
 	using Mosi = GpioOutputB15;
 
-    using RxEn = GpioOutputB9;
-    using TxEn = GpioOutputB8;
+    using RxEn = GpioOutputA9;
+    using TxEn = GpioOutputA10;
 
 	using Spi = SpiMaster2;
 }
@@ -120,20 +105,11 @@ initialize()
 	SystemClock::enable();
 	SysTickTimer::initialize<SystemClock>();
 
-	lora1::Nss::setOutput();
-	lora1::Rst::setOutput();
-
-	lora1::Nss::set();
-	lora1::Rst::set();
-
 	lora2::Nss::setOutput();
 	lora2::Rst::setOutput();
 
 	lora2::Nss::set();
 	lora2::Rst::set();
-
-	lora1::Spi::connect<lora1::Sck::Sck, lora1::Mosi::Mosi, lora1::Miso::Miso>();
-	lora1::Spi::initialize<SystemClock, 6000000ul>();
 
 	lora2::Spi::connect<lora2::Sck::Sck, lora2::Mosi::Mosi, lora2::Miso::Miso>();
 	lora2::Spi::initialize<SystemClock, 6000000ul>();
