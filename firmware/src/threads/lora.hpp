@@ -26,22 +26,24 @@ public:
     {
         RF_CALL_BLOCKING(modem.setLora());
         RF_CALL_BLOCKING(modem.setCarrierFreq(0xd9, 0x5d, 0x9a)); // 869.465 MHz - FSTEP = 61.035 Hz
+        RF_CALL_BLOCKING(modem.setHighFrequencyMode());
+        RF_CALL_BLOCKING(modem.setLnaBoostHf());
         RF_CALL_BLOCKING(modem.setPaBoost());
         RF_CALL_BLOCKING(modem.setAgcAutoOn());
         RF_CALL_BLOCKING(modem.setExplicitHeaderMode());
-        RF_CALL_BLOCKING(modem.setSpreadingFactor(sx127x::SpreadingFactor::SF9));
-        RF_CALL_BLOCKING(modem.setBandwidth(sx127x::SignalBandwidth::Fr125kHz));
-        RF_CALL_BLOCKING(modem.setCodingRate(sx127x::ErrorCodingRate::Cr4_5));
+        RF_CALL_BLOCKING(modem.setSpreadingFactor(sx127x::SpreadingFactor::SF12));
+        RF_CALL_BLOCKING(modem.setBandwidth(sx127x::SignalBandwidth::Fr250kHz));
+        // RF_CALL_BLOCKING(modem.setCodingRate(sx127x::ErrorCodingRate::Cr4_5));
         RF_CALL_BLOCKING(modem.enablePayloadCRC());
+        RF_CALL_BLOCKING(modem.setPayloadLength(4));
         RF_CALL_BLOCKING(modem.setDio0Mapping(0));
 
-        RF_CALL_BLOCKING(modem.setPayloadLength(4));
 
         // // Set output power to 10 dBm (boost mode)
-        RF_CALL_BLOCKING(modem.setOutputPower(0x08));
+        RF_CALL_BLOCKING(modem.setOutputPower(0x0f));
         RF_CALL_BLOCKING(modem.setOperationMode(sx127x::Mode::RecvCont));
 
-        timeout.restart(5s);
+        timeout.restart(10s);
     };
 
     bool
@@ -59,17 +61,28 @@ public:
 
             if (messageAvailable()) {
                 RF_CALL(receiveMessage(data));
-                
-                Board::bluetooth::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;	
-                Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
+                RF_CALL(modem.read(sx127x::Address::RegPktRssiValue, &data[4], 1));
+                RF_CALL(modem.read(sx127x::Address::RegPktSnrValue, &data[5], 1));
+                Board::bluetooth::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << "|" << data[4]  << "|" << data[5] << endl;	
+                // Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << "|" << data[4] << "|" << data[5] << endl;	
             }
             
             if(timeout.isExpired()){
                 RF_CALL(sendMessage());
-                RF_CALL(modem.read(sx127x::Address::FrMsb, data, 1));
-                Board::bluetooth::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
-                Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
-                timeout.restart(5s);
+                // RF_CALL(modem.read(sx127x::Address::OpMode, &data[0], 1));
+                // Board::bluetooth::ioStream << "RegOpMode:" << data[0] << endl;
+                // RF_CALL(modem.read(sx127x::Address::FrMsb, &data[0], 3));
+                // Board::bluetooth::ioStream << "RegFr:" << data[0] << ":" << data[1]<< ":" << data[2] << endl;
+                // RF_CALL(modem.read(sx127x::Address::PaConfig, &data[0], 1));
+                // Board::bluetooth::ioStream << "RegPaConfig:" << data[0] << endl;
+                // RF_CALL(modem.read(sx127x::Address::Lna, &data[0], 1));
+                // Board::bluetooth::ioStream << "RegLna:" << data[0] << endl;
+                // RF_CALL(modem.read(sx127x::Address::ModemConfig1, &data[0], 1));
+                // RF_CALL(modem.read(sx127x::Address::ModemConfig2, &data[1], 1)); 
+                // RF_CALL(modem.read(sx127x::Address::ModemConfig3, &data[2], 1)); 
+                // Board::bluetooth::ioStream << "ModemConfig:" << data[0] << ":" << data[1] << ":" << data[2] << endl;
+                // Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
+                timeout.restart(10s);
             } 
         };
 
@@ -94,14 +107,13 @@ public:
 	sendMessage()
     {
         RF_BEGIN();
-        RF_CALL(modem.setOperationMode(sx127x::Mode::Transmit));
 
         buildPacket();
 
         RF_CALL(modem.setPayloadLength(4));
 		RF_CALL(modem.sendPacket(data, 4));
-
-		PT_CALL(modem.setOperationMode(sx127x::Mode::RecvCont));
+        RF_WAIT_UNTIL(messageSent());
+		RF_CALL(modem.setOperationMode(sx127x::Mode::RecvCont));
 
         RF_END_RETURN(0);
     };
@@ -126,6 +138,12 @@ private:
 
     bool
     messageAvailable() 
+    {
+        return D0::read();
+    }
+
+    bool
+    messageSent() 
     {
         return D0::read();
     }

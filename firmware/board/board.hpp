@@ -77,8 +77,8 @@ namespace lora2 {
 
 namespace gps
 {
-	using Rx = GpioInputA10;
-	using Tx = GpioOutputA9;
+	using Rx = GpioInputB7;
+	using Tx = GpioOutputB6;
 
 	using Uart = Usart1;
 }
@@ -107,6 +107,12 @@ initialize()
 
 	lora2::Nss::setOutput();
 	lora2::Rst::setOutput();
+
+	lora2::RxEn::setOutput();
+	lora2::TxEn::setOutput();
+
+	lora2::RxEn::reset();
+	lora2::TxEn::reset();
 
 	lora2::Nss::set();
 	lora2::Rst::set();
