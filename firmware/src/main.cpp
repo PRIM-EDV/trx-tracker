@@ -9,7 +9,7 @@
 
 using namespace Board;
 
-namespace Board::lora2 {
+namespace Board::lora {
     LoraThread<Spi, Nss, D0, RxEn, TxEn> thread;
 }
 
@@ -58,7 +58,7 @@ int main()
     
     // bluetooth::ioStream << "AT+NAMETRX-" << shared::trackerId << "\r\n";
 
-    lora2::thread.initialize();
+    lora::thread.initialize();
     usb::thread.initialize();
     gps::thread.initialize();
 

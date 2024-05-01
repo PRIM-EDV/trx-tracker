@@ -60,7 +60,7 @@ struct SystemClock
 	}
 };
 
-namespace lora2 {
+namespace lora {
 	using Rst = GpioOutputA8;
 	using D0 = GpioInputB11;
 
@@ -105,20 +105,20 @@ initialize()
 	SystemClock::enable();
 	SysTickTimer::initialize<SystemClock>();
 
-	lora2::Nss::setOutput();
-	lora2::Rst::setOutput();
+	lora::Nss::setOutput();
+	lora::Rst::setOutput();
 
-	lora2::RxEn::setOutput();
-	lora2::TxEn::setOutput();
+	lora::RxEn::setOutput();
+	lora::TxEn::setOutput();
 
-	lora2::RxEn::reset();
-	lora2::TxEn::reset();
+	lora::RxEn::reset();
+	lora::TxEn::reset();
 
-	lora2::Nss::set();
-	lora2::Rst::set();
+	lora::Nss::set();
+	lora::Rst::set();
 
-	lora2::Spi::connect<lora2::Sck::Sck, lora2::Mosi::Mosi, lora2::Miso::Miso>();
-	lora2::Spi::initialize<SystemClock, 6000000ul>();
+	lora::Spi::connect<lora::Sck::Sck, lora::Mosi::Mosi, lora::Miso::Miso>();
+	lora::Spi::initialize<SystemClock, 6000000ul>();
 
 	gps::Uart::connect<gps::Tx::Tx, gps::Rx::Rx>();
 	gps::Uart::initialize<SystemClock, 9600_Bd>();
