@@ -80,7 +80,7 @@ public:
                 // RF_CALL(modem.read(sx127x::Address::ModemConfig1, &data[0], 1));
                 // RF_CALL(modem.read(sx127x::Address::ModemConfig2, &data[1], 1)); 
                 // RF_CALL(modem.read(sx127x::Address::ModemConfig3, &data[2], 1)); 
-                // Board::bluetooth::ioStream << "ModemConfig:" << data[0] << ":" << data[1] << ":" << data[2] << endl;
+                Board::bluetooth::ioStream << data[0] << ":" << data[1] << ":" << data[2] << ":" << data[3] << endl;
                 // Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
                 timeout.restart(10s);
             } 
