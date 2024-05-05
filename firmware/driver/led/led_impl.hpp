@@ -1,23 +1,109 @@
-
-    // Timer2::connect<GpioOutputA1::Ch2>();
-    // Timer2::connect<GpioOutputA5::Ch1>();
-    // Timer2::connect<GpioOutputB10::Ch3>();
-
-
-
-	// Timer2::enable();
-	// Timer2::setMode(Timer2::Mode::UpCounter);
-
-	// // 48 MHz / 2 / 2^16 ~ 366 Hz
-	// // Timer2::setPrescaler(2);
-	// Timer2::setOverflow(65535);
+// ----------------------------------------------------------------------------
+/* Copyright (c) 2024, Lucas Mösch
+ * All Rights Reserved.
+ */
+// ----------------------------------------------------------------------------
+#include "led.hpp"
+#include <modm/platform.hpp>
 
 
-	Timer2::configureOutputChannel<GpioOutputA1::Ch2>(Timer2::OutputCompareMode::Pwm, 500);
-	// Timer2::configureOutputChannel<GpioOutputA5::Ch1>(Timer2::OutputCompareMode::Pwm, 450);
-	// Timer2::configureOutputChannel<GpioOutputB10::Ch3>(Timer2::OutputCompareMode::Pwm, 350);
+#define MAX_R (uint16_t) ((2.35 / 3.3) * 65535)
+#define MAX_G (uint16_t) ((3.2 / 3.3) * 65535)
+#define MAX_B (uint16_t) ((3.1/ 3.3) * 65535)
+
+FLASH_STORAGE(uint8_t gamma8[]) =
+{
+    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,
+    1,  1,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  2,  2,
+    2,  3,  3,  3,  3,  3,  3,  3,  4,  4,  4,  4,  4,  5,  5,  5,
+    5,  6,  6,  6,  6,  7,  7,  7,  7,  8,  8,  8,  9,  9,  9, 10,
+   10, 10, 11, 11, 11, 12, 12, 13, 13, 13, 14, 14, 15, 15, 16, 16,
+   17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 24, 24, 25,
+   25, 26, 27, 27, 28, 29, 29, 30, 31, 32, 32, 33, 34, 35, 35, 36,
+   37, 38, 39, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 50,
+   51, 52, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 66, 67, 68,
+   69, 70, 72, 73, 74, 75, 77, 78, 79, 81, 82, 83, 85, 86, 87, 89,
+   90, 92, 93, 95, 96, 98, 99,101,102,104,105,107,109,110,112,114,
+  115,117,119,120,122,124,126,127,129,131,133,135,137,138,140,142,
+  144,146,148,150,152,154,156,158,160,162,164,167,169,171,173,175,
+  177,180,182,184,186,189,191,193,196,198,200,203,205,208,210,213,
+  215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255
+};
+
+namespace modm
+{
+
+template <typename RedCh, typename GreenCh, typename BlueCh, typename Timer>
+Led<RedCh, GreenCh, BlueCh, Timer>::Led()
+{
+    Timer::enable();
+    Timer::setMode(Timer::Mode::UpCounter);
+
+    Timer::template connect<RedCh>();
+    Timer::template connect<GreenCh>();
+    Timer::template connect<BlueCh>();
+
+    // 48 MHz / 2 / 2^16 ~ 366 Hz
+    Timer::setPrescaler(2);
+    Timer::setOverflow(65535);
+
+    Timer::template configureOutputChannel<RedCh>(Timer::OutputCompareMode::Pwm, 0);
+    Timer::template configureOutputChannel<GreenCh>(Timer::OutputCompareMode::Pwm, 0);
+    Timer::template configureOutputChannel<BlueCh>(Timer::OutputCompareMode::Pwm, 0);
+
+    Timer::applyAndReset();
+    Timer::start();
+}
+// ----------------------------------------------------------------------------
+template <typename RedCh, typename GreenCh, typename BlueCh, typename Timer>
+void
+Led<RedCh, GreenCh, BlueCh, Timer>::initialize()
+{
+    Timer::enable();
+    Timer::setMode(Timer::Mode::UpCounter);
+
+    Timer::template connect<RedCh>();
+    Timer::template connect<GreenCh>();
+    Timer::template connect<BlueCh>();
+
+    // 48 MHz / 2 / 2^16 ~ 366 Hz
+    Timer::setPrescaler(2);
+    Timer::setOverflow(65535);
+
+    Timer::template configureOutputChannel<RedCh>(Timer::OutputCompareMode::Pwm, 0);
+    Timer::template configureOutputChannel<GreenCh>(Timer::OutputCompareMode::Pwm, 0);
+    Timer::template configureOutputChannel<BlueCh>(Timer::OutputCompareMode::Pwm, 0);
+
+    Timer::applyAndReset();
+    Timer::start();
+}
 
 
-	// Timer2::applyAndReset();
+// ----------------------------------------------------------------------------
 
-	// Timer2::start();
+template <typename RedCh, typename GreenCh, typename BlueCh, typename Timer>
+void 
+Led<RedCh, GreenCh, BlueCh, Timer>::setColor(uint8_t red, uint8_t green, uint8_t blue)
+{
+    this->red = red;
+    this->green = green;
+    this->blue = blue;
+
+
+    Timer::template configureOutputChannel<RedCh>(Timer::OutputCompareMode::Pwm, getGammaCorrectedBrightness(red, MAX_R));
+    Timer::template configureOutputChannel<GreenCh>(Timer::OutputCompareMode::Pwm, getGammaCorrectedBrightness(green, MAX_G));
+    Timer::template configureOutputChannel<BlueCh>(Timer::OutputCompareMode::Pwm, getGammaCorrectedBrightness(blue, MAX_B));
+    Timer::applyAndReset();
+}
+
+// ----------------------------------------------------------------------------
+template <typename RedCh, typename GreenCh, typename BlueCh, typename Timer>
+uint16_t
+Led<RedCh, GreenCh, BlueCh, Timer>::getGammaCorrectedBrightness(uint8_t brightness, uint16_t limit)
+{
+    const uint8_t gamma = gamma8[brightness];
+    return (uint16_t) ((limit / 255.0) * gamma);
+}
+
+}

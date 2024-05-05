@@ -60,6 +60,16 @@ struct SystemClock
 	}
 };
 
+namespace led {
+    using Red = GpioOutputA5;
+    using Green = GpioOutputA1;
+    using Blue = GpioOutputB10;
+    
+    using RedCh = GpioOutputA5::Ch1;
+    using GreenCh = GpioOutputA1::Ch2;
+    using BlueCh = GpioOutputB10::Ch3;
+}
+
 namespace lora {
 	using Rst = GpioOutputA8;
 	using D0 = GpioInputB11;
@@ -105,18 +115,26 @@ initialize()
 	SystemClock::enable();
 	SysTickTimer::initialize<SystemClock>();
 
+    // Led
+    led::Red::setOutput();
+    led::Green::setOutput();
+    led::Blue::setOutput();
+    led::Red::set();
+    led::Green::set();
+    led::Blue::set();
+
+    // Lora
 	lora::Nss::setOutput();
 	lora::Rst::setOutput();
-
 	lora::RxEn::setOutput();
 	lora::TxEn::setOutput();
 
 	lora::RxEn::reset();
 	lora::TxEn::reset();
-
 	lora::Nss::set();
 	lora::Rst::set();
 
+    // Serial
 	lora::Spi::connect<lora::Sck::Sck, lora::Mosi::Mosi, lora::Miso::Miso>();
 	lora::Spi::initialize<SystemClock, 6000000ul>();
 
