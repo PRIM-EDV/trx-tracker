@@ -112,7 +112,9 @@ public:
 
         RF_CALL(modem.setPayloadLength(4));
 		RF_CALL(modem.sendPacket(data, 4));
-        RF_WAIT_UNTIL(messageSent());
+        timeout2.restart(1s);
+        RF_WAIT_UNTIL(messageSent() || timeout2.isExpired());
+        RF_CALL(modem.write(sx127x::Address::IrqFlags, 0xff));
 		RF_CALL(modem.setOperationMode(sx127x::Mode::RecvCont));
 
         RF_END_RETURN(0);
@@ -123,6 +125,7 @@ private:
     uint8_t status[1];
 
     ShortTimeout timeout;
+    ShortTimeout timeout2;
     E32x00Mx0s<SpiMaster, Cs, RxEn, TxEn> modem;
 
     void

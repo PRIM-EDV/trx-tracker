@@ -22,11 +22,13 @@ E32x00Mx0s<SpiMaster, Cs, RxEn, TxEn>::setOperationMode(sx127x::Mode mode)
 
     if (mode == sx127x::Mode::RecvCont || mode == sx127x::Mode::RecvSingle)
     {
-      RxEn::set(); TxEn::reset();
+      TxEn::reset(); delay(100ms);
+      RxEn::set(); 
       RF_CALL(SX127x<SpiMaster, Cs>::setDio0Mapping(0));
     } else if (mode == sx127x::Mode::Transmit)
     {
-      TxEn::set();RxEn::reset();
+      RxEn::reset();delay(100ms);
+      TxEn::set();
       RF_CALL(SX127x<SpiMaster, Cs>::setDio0Mapping(1));
     };
 
