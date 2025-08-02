@@ -30,7 +30,12 @@ E32x00Mx0s<SpiMaster, Cs, RxEn, TxEn>::setOperationMode(sx127x::Mode mode)
       RxEn::reset();delay(100ms);
       TxEn::set();
       RF_CALL(SX127x<SpiMaster, Cs>::setDio0Mapping(1));
-    };
+    } else if (mode == sx127x::Mode::ChnActvDetect)
+    {
+      TxEn::reset(); delay(100ms);
+      RxEn::set(); 
+      RF_CALL(SX127x<SpiMaster, Cs>::setDio0Mapping(2));
+    }
 
     RF_CALL(SX127x<SpiMaster, Cs>::setOperationMode(mode));
 
