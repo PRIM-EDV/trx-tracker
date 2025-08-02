@@ -59,5 +59,11 @@ int main()
     usb::thread.initialize();
     gps::thread.initialize();
 
+    // while (true) {
+    //     // lora1::thread.run();
+    //     lora::thread.run();
+    //     usb::thread.run();
+    //     gps::thread.run();
+    // }
     fiber::Scheduler::run();
 }

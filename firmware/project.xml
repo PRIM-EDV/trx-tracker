@@ -10,7 +10,7 @@
     <option name="modm:platform:uart:2:buffer.rx">8</option>
     <option name="modm:platform:uart:2:buffer.tx">128</option>
     <option name="modm:target">stm32f072cbu6</option>
-    <option name="modm:processing:protothread:use_fiber">yes</option>
+    <option name="modm:processing:protothread:use_fiber">Yes</option>
     <option name="modm:tinyusb:config">device.cdc,device.cdc</option>
     <option name="modm:nanopb:sources">../protocol/protocol.proto</option>
     <option name="modm:nanopb:path">protocol</option>
