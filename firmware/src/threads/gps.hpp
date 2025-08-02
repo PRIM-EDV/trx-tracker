@@ -33,7 +33,8 @@ public:
     void
     initialize()
     {
-        setOrigin(52.382864, 11.818967);
+        // setOrigin(52.382864, 11.818967);
+        setOrigin(52.386332, 11.80533); // Set origin to current position
     };
 
     bool

@@ -13,6 +13,7 @@
 
 #include "board/board.hpp"
 #include "driver/cdebyte/e32-x00mx0s.hpp"
+#include "lib/random/random.hpp"
 #include "shared/shared.hpp"
 
 using namespace modm;
@@ -69,17 +70,6 @@ public:
             
             if(timeout.isExpired()){
                 RF_CALL(sendMessage());
-                // RF_CALL(modem.read(sx127x::Address::OpMode, &data[0], 1));
-                // Board::bluetooth::ioStream << "RegOpMode:" << data[0] << endl;
-                // RF_CALL(modem.read(sx127x::Address::FrMsb, &data[0], 3));
-                // Board::bluetooth::ioStream << "RegFr:" << data[0] << ":" << data[1]<< ":" << data[2] << endl;
-                // RF_CALL(modem.read(sx127x::Address::PaConfig, &data[0], 1));
-                // Board::bluetooth::ioStream << "RegPaConfig:" << data[0] << endl;
-                // RF_CALL(modem.read(sx127x::Address::Lna, &data[0], 1));
-                // Board::bluetooth::ioStream << "RegLna:" << data[0] << endl;
-                // RF_CALL(modem.read(sx127x::Address::ModemConfig1, &data[0], 1));
-                // RF_CALL(modem.read(sx127x::Address::ModemConfig2, &data[1], 1)); 
-                // RF_CALL(modem.read(sx127x::Address::ModemConfig3, &data[2], 1)); 
                 Board::bluetooth::ioStream << data[0] << ":" << data[1] << ":" << data[2] << ":" << data[3] << endl;
                 // Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
                 timeout.restart(10s);
@@ -87,6 +77,30 @@ public:
         };
 
         PT_END();
+    };
+
+    ResumableResult<void>
+    csma()
+    {
+        RF_BEGIN();
+
+        while (true) {
+            RF_CALL(modem.setOperationMode(sx127x::Mode::ChnActvDetect));
+            RF_WAIT_UNTIL(cadDone());
+
+            RF_CALL(modem.read(sx127x::Address::IrqFlags, status, 1));
+            RF_CALL(modem.write(sx127x::Address::IrqFlags, 0xff));
+
+            if (!(status[0] & (uint8_t) sx127x::RegIrqFlags::CadDetected)) {
+                RF_RETURN();
+            } else {
+                uint8_t rand = random::lfsr8();
+                csmaTimeout.restart(20ms * rand);
+                RF_WAIT_UNTIL(csmaTimeout.isExpired());
+            }
+        }
+
+        RF_END();
     };
 
     ResumableResult<void>
@@ -126,6 +140,7 @@ private:
 
     ShortTimeout timeout;
     ShortTimeout timeout2;
+    ShortTimeout csmaTimeout;
     E32x00Mx0s<SpiMaster, Cs, RxEn, TxEn> modem;
 
     void
@@ -138,6 +153,12 @@ private:
 		data[2] = (px << 2) | ((py >>8) & 0x03);
 		data[3] = (py) & 0xFF;
 	};
+
+    bool
+    cadDone() 
+    {
+        return D0::read();
+    }
 
     bool
     messageAvailable() 
