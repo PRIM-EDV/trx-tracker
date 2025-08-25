@@ -5,12 +5,8 @@
   <options>
     <option name="modm:build:build.path">build</option>
     <option name="modm:build:openocd.cfg">conf/openocd.cfg</option>
-    <option name="modm:platform:uart:1:buffer.rx">8</option>
-    <option name="modm:platform:uart:1:buffer.tx">8</option>
-    <option name="modm:platform:uart:2:buffer.rx">8</option>
-    <option name="modm:platform:uart:2:buffer.tx">128</option>
     <option name="modm:target">stm32f072cbu6</option>
-    <option name="modm:processing:protothread:use_fiber">Yes</option>
+    <option name="modm:processing:protothread:use_fiber">No</option>
     <option name="modm:tinyusb:config">device.cdc,device.cdc</option>
     <option name="modm:nanopb:sources">../protocol/protocol.proto</option>
     <option name="modm:nanopb:path">protocol</option>
@@ -27,6 +23,7 @@
     <module>modm:platform:uart:2</module>
     <module>modm:platform:spi:1</module>
     <module>modm:platform:spi:2</module>
+    <module>modm:processing:timer</module>
     <module>modm:processing:protothread</module>
     <module>modm:processing:resumable</module>
     <module>modm:processing</module>

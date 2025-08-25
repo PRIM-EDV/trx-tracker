@@ -14,12 +14,13 @@
 #include "board/board.hpp"
 #include "driver/cdebyte/e32-x00mx0s.hpp"
 #include "lib/random/random.hpp"
+// #include "lib/thread/thread.hpp"
 #include "shared/shared.hpp"
 
 using namespace modm;
 
 template <typename SpiMaster, typename Cs, typename D0, typename RxEn, typename TxEn>
-class LoraThread : public modm::pt::Protothread, private modm::NestedResumable<3>
+class LoraThread : public modm::pt::Protothread, protected modm::NestedResumable<4>
 {
 public:
     void
@@ -61,15 +62,15 @@ public:
             PT_WAIT_UNTIL(timeout.isExpired() || messageAvailable());
 
             if (messageAvailable()) {
-                RF_CALL(receiveMessage(data));
-                RF_CALL(modem.read(sx127x::Address::RegPktRssiValue, &data[4], 1));
-                RF_CALL(modem.read(sx127x::Address::RegPktSnrValue, &data[5], 1));
+                PT_CALL(receiveMessage(data));
+                PT_CALL(modem.read(sx127x::Address::RegPktRssiValue, &data[4], 1));
+                PT_CALL(modem.read(sx127x::Address::RegPktSnrValue, &data[5], 1));
                 Board::bluetooth::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << "|" << data[4]  << "|" << data[5] << endl;	
                 // Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << "|" << data[4] << "|" << data[5] << endl;	
             }
             
             if(timeout.isExpired()){
-                RF_CALL(sendMessage());
+                PT_CALL(sendMessage());
                 Board::bluetooth::ioStream << data[0] << ":" << data[1] << ":" << data[2] << ":" << data[3] << endl;
                 // Board::usb::ioStream << data[0] << ":" << data[1]<< ":" << data[2]<< ":" << data[3] << endl;
                 timeout.restart(10s);
@@ -138,9 +139,9 @@ private:
 	uint8_t data[8];
     uint8_t status[1];
 
-    ShortTimeout timeout;
-    ShortTimeout timeout2;
-    ShortTimeout csmaTimeout;
+    Timeout timeout;
+    Timeout timeout2;
+    Timeout csmaTimeout;
     E32x00Mx0s<SpiMaster, Cs, RxEn, TxEn> modem;
 
     void

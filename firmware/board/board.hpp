@@ -99,7 +99,7 @@ namespace Board
 		using Rx = GpioInputB7;
 		using Tx = GpioOutputB6;
 
-		using Uart = Usart1;
+		using Uart = BufferedUart<UsartHal1, UartRxBuffer<8>, UartTxBuffer<8>>;
 	}
 
 	namespace bluetooth
@@ -107,7 +107,7 @@ namespace Board
 		using Rx = GpioInputA3;
 		using Tx = GpioOutputA2;
 
-		using Uart = Usart2;
+		using Uart = BufferedUart<UsartHal2, UartRxBuffer<128>, UartTxBuffer<128>>;
 	}
 
 	namespace usb
