@@ -47,8 +47,6 @@ public:
     };
   private:
     Timeout timeout;
-
-    
 };
 
 #endif // BATTERY_THREAD_HPP

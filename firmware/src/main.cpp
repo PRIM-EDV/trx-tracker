@@ -5,6 +5,8 @@
 #include "src/threads/lora.hpp"
 #include "src/threads/tusb.hpp"
 #include "src/threads/gps.hpp"
+#include "src/threads/gateway.hpp"
+#include "src/threads/battery.hpp"
 
 
 using namespace Board;
@@ -21,17 +23,21 @@ namespace Board::gps {
     GPSThread<Uart> thread;
 }
 
+namespace Board::battery {
+    BatteryThread thread;
+}
+
+GatewayThread<decltype(lora::thread), decltype(battery::thread)> gatewayThread(lora::thread, battery::thread);
+
 int main()
 {
     Board::initialize();
 
     shared::trackerId = 7;
 
-    // Timer2::connect<GpioOutputA1::Ch2>();
-    // Timer2::connect<GpioOutputA5::Ch1>();
-    // Timer2::connect<GpioOutputB10::Ch3>();
-
-
+    Timer2::connect<GpioOutputA1::Ch2>();
+    Timer2::connect<GpioOutputA5::Ch1>();
+    Timer2::connect<GpioOutputB10::Ch3>();
 
 	Timer2::enable();
 	Timer2::setMode(Timer2::Mode::UpCounter);
@@ -41,14 +47,14 @@ int main()
 	Timer2::setOverflow(65535);
 
 
-	// Timer2::configureOutputChannel<GpioOutputA1::Ch2>(Timer2::OutputCompareMode::Pwm, 500);
-	// Timer2::configureOutputChannel<GpioOutputA5::Ch1>(Timer2::OutputCompareMode::Pwm, 450);
-	// Timer2::configureOutputChannel<GpioOutputB10::Ch3>(Timer2::OutputCompareMode::Pwm, 350);
+	Timer2::configureOutputChannel<GpioOutputA1::Ch2>(Timer2::OutputCompareMode::Pwm, 0);
+	Timer2::configureOutputChannel<GpioOutputA5::Ch1>(Timer2::OutputCompareMode::Pwm, 0);
+	Timer2::configureOutputChannel<GpioOutputB10::Ch3>(Timer2::OutputCompareMode::Pwm, 350);
 
 
-	// Timer2::applyAndReset();
+	Timer2::applyAndReset();
 
-	// Timer2::start();
+	Timer2::start();
 
     delay(5000ms); // Wait for BT-device
 
@@ -59,10 +65,5 @@ int main()
     usb::thread.initialize();
     gps::thread.initialize();
 
-    while (true) {
-        lora::thread.run();
-        usb::thread.run();
-        gps::thread.run();
-    }
-    // fiber::Scheduler::run();
+    fiber::Scheduler::run();
 }

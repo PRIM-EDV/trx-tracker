@@ -7,3 +7,6 @@
 [submodule "firmware/driver/gps"]
 	path = firmware/driver/gps
 	url = https://github.com/lmoesch/modm-gps
+[submodule "libs/trx/protocol"]
+	path = libs/trx/protocol
+	url = https://github.com/PRIM-EDV/trx-protocol

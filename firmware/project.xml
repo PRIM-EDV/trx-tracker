@@ -6,9 +6,9 @@
     <option name="modm:build:build.path">build</option>
     <option name="modm:build:openocd.cfg">conf/openocd.cfg</option>
     <option name="modm:target">stm32f072cbu6</option>
-    <option name="modm:processing:protothread:use_fiber">No</option>
+    <option name="modm:processing:protothread:use_fiber">Yes</option>
     <option name="modm:tinyusb:config">device.cdc,device.cdc</option>
-    <option name="modm:nanopb:sources">../protocol/protocol.proto</option>
+    <option name="modm:nanopb:sources">../libs/trx/protocol/proto/trx.proto,../libs/trx/protocol/proto/trx.device.proto,../libs/trx/protocol/proto/trx.tracker.proto</option>
     <option name="modm:nanopb:path">protocol</option>
   </options>
   <modules>
