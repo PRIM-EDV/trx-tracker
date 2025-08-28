@@ -27,7 +27,7 @@ namespace Board::battery {
     BatteryThread thread;
 }
 
-GatewayThread<decltype(lora::thread), decltype(battery::thread)> gatewayThread(lora::thread, battery::thread);
+GatewayThread<decltype(lora::thread)> gatewayThread(lora::thread);
 
 int main()
 {
@@ -60,6 +60,10 @@ int main()
 
     
     bluetooth::ioStream << "AT+NAMETRX-" << shared::trackerId << "\r\n";
+
+    lora::thread.watermark_stack();
+    gatewayThread.watermark_stack();
+
 
     lora::thread.initialize();
     usb::thread.initialize();

@@ -27,6 +27,7 @@ typedef struct _Entity {
     bool has_position;
     Position position;
     Type type;
+    int32_t size;
 } Entity;
 
 typedef struct _SetEntity_Request {
@@ -65,12 +66,12 @@ extern "C" {
 
 
 /* Initializer values for message structs */
-#define Entity_init_default                      {0, false, Position_init_default, _Type_MIN}
+#define Entity_init_default                      {0, false, Position_init_default, _Type_MIN, 0}
 #define Position_init_default                    {0, 0}
 #define SetEntity_init_default                   {0, {SetEntity_Request_init_default}}
 #define SetEntity_Request_init_default           {false, Entity_init_default}
 #define SetEntity_Response_init_default          {0}
-#define Entity_init_zero                         {0, false, Position_init_zero, _Type_MIN}
+#define Entity_init_zero                         {0, false, Position_init_zero, _Type_MIN, 0}
 #define Position_init_zero                       {0, 0}
 #define SetEntity_init_zero                      {0, {SetEntity_Request_init_zero}}
 #define SetEntity_Request_init_zero              {false, Entity_init_zero}
@@ -82,6 +83,7 @@ extern "C" {
 #define Entity_id_tag                            1
 #define Entity_position_tag                      2
 #define Entity_type_tag                          3
+#define Entity_size_tag                          4
 #define SetEntity_Request_entity_tag             1
 #define SetEntity_request_tag                    1
 #define SetEntity_response_tag                   2
@@ -91,7 +93,8 @@ extern "C" {
 #define Entity_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT32,    id,                1) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  position,          2) \
-X(a, STATIC,   SINGULAR, UENUM,    type,              3)
+X(a, STATIC,   SINGULAR, UENUM,    type,              3) \
+X(a, STATIC,   SINGULAR, INT32,    size,              4)
 #define Entity_CALLBACK NULL
 #define Entity_DEFAULT NULL
 #define Entity_position_MSGTYPE Position
@@ -137,9 +140,9 @@ extern const pb_msgdesc_t SetEntity_Response_msg;
 
 /* Maximum encoded size of messages (where known) */
 /* SetEntity_size depends on runtime parameters */
-#define Entity_size                              37
+#define Entity_size                              48
 #define Position_size                            22
-#define SetEntity_Request_size                   39
+#define SetEntity_Request_size                   50
 #define SetEntity_Response_size                  0
 #define TRX_TRACKER_PB_HPP_MAX_SIZE              SetEntity_Request_size
 

@@ -12,20 +12,23 @@
 #include <modm/processing/timer.hpp>
 
 #include <pb_decode.h>
+#include <pb_encode.h>
 
 #include "board/board.hpp"
 #include "protocol/trx.pb.hpp"
 
 #include "lib/buffer/message_buffer.hpp"
 #include "lib/cobs/cobs.hpp"
+#include "lib/uuid/uuid.h"
+#include "lib/thread/thread.hpp"
 
 using namespace modm;
 
-template <typename Modem, typename Battery>
-class GatewayThread : public modm::pt::Protothread, protected modm::NestedResumable<2>
+template <typename Modem>
+class GatewayThread : public Thread, protected modm::NestedResumable<2>
 {
 public:
-  GatewayThread(Modem &modem, Battery &battery) : modem(modem), battery(battery) {};
+  GatewayThread(Modem &modem) : modem(modem) {};
 
   void
   initialize() {
@@ -84,8 +87,8 @@ public:
     TrxMessage trxMessage = TrxMessage_init_zero;
 
     RF_BEGIN();
-    bytes_decoded = cobs_decode((uint8_t *)message.data, message.size, decoded_buffer);
-    stream = pb_istream_from_buffer(decoded_buffer, bytes_decoded);
+    bytes_decoded = cobs_decode((uint8_t *)message.data, message.size, shared::decoded_buffer);
+    stream = pb_istream_from_buffer(shared::decoded_buffer, bytes_decoded);
 
     if (pb_decode(&stream, TrxMessage_fields, &trxMessage))
     {
@@ -111,7 +114,7 @@ public:
     switch (trxMessage.message.request.which_request)
     {
     case Request_getBatteryStatus_tag:
-      // RF_CALL(modem1.setMapEntity(trxMessage.message.request.request.setEntity.entity));
+      RF_CALL(respondGetBatteryStatus());
       break;
     default:
       break;
@@ -123,9 +126,34 @@ public:
 private:
   MessageBuffer<128> message;
   Modem &modem;
-  Battery &battery;
 
-  uint8_t decoded_buffer[128];
+  ResumableResult<void>
+  respondGetBatteryStatus()
+  {
+    RF_BEGIN();
+
+    // generate UUID
+    uuid::v4(shared::uuid_buffer);
+
+    // generate protobuf message
+    TrxMessage trx_message = TrxMessage_init_zero;
+    trx_message.id.arg = shared::uuid_buffer;
+    trx_message.id.funcs.encode = &(shared::encode_string);
+
+    trx_message.which_message = TrxMessage_response_tag;
+    trx_message.message.response.which_response = Response_getBatteryStatus_tag;
+    trx_message.message.response.response.getBatteryStatus = GetBatteryStatus_Response_init_default;
+    trx_message.message.response.response.getBatteryStatus.battery_level = shared::batteryLevel;
+
+    pb_ostream_t pb_ostream = pb_ostream_from_buffer(shared::message_buffer, sizeof(shared::message_buffer));
+    pb_encode(&pb_ostream, TrxMessage_fields, &trx_message);
+    uint8_t bytes_encoded = cobs_encode(shared::message_buffer, pb_ostream.bytes_written, shared::encoding_buffer);
+
+    // Board::bluetooth::Uart::write(shared::encoding_buffer, bytes_encoded);
+    // Board::bluetooth::Uart::write('\0');
+
+    RF_END();
+  }
 };
 
 #endif // GATEWAY_THREAD_HPP

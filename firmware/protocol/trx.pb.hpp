@@ -129,11 +129,11 @@ extern const pb_msgdesc_t TrxMessage_msg;
 
 /* Maximum encoded size of messages (where known) */
 #if defined(GetDeviceInfo_Response_size)
-union Response_response_size_union {char f2[(6 + GetDeviceInfo_Response_size)]; char f0[13];};
+union Response_response_size_union {char f2[(6 + GetDeviceInfo_Response_size)]; char f0[15];};
 #endif
 /* Error_size depends on runtime parameters */
 /* TrxMessage_size depends on runtime parameters */
-#define Request_size                             41
+#define Request_size                             52
 #define TRX_PB_HPP_MAX_SIZE                      Request_size
 #if defined(GetDeviceInfo_Response_size)
 #define Response_size                            (0 + sizeof(union Response_response_size_union))

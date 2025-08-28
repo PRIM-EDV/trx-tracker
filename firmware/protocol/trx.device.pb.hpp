@@ -16,6 +16,7 @@ typedef struct _GetBatteryStatus_Request {
 
 typedef struct _GetBatteryStatus_Response {
     int32_t battery_level;
+    bool isCharging;
 } GetBatteryStatus_Response;
 
 typedef struct _GetBatteryStatus {
@@ -53,19 +54,20 @@ extern "C" {
 /* Initializer values for message structs */
 #define GetBatteryStatus_init_default            {0, {GetBatteryStatus_Request_init_default}}
 #define GetBatteryStatus_Request_init_default    {0}
-#define GetBatteryStatus_Response_init_default   {0}
+#define GetBatteryStatus_Response_init_default   {0, 0}
 #define GetDeviceInfo_init_default               {0, {GetDeviceInfo_Request_init_default}}
 #define GetDeviceInfo_Request_init_default       {0}
 #define GetDeviceInfo_Response_init_default      {{{NULL}, NULL}, {{NULL}, NULL}}
 #define GetBatteryStatus_init_zero               {0, {GetBatteryStatus_Request_init_zero}}
 #define GetBatteryStatus_Request_init_zero       {0}
-#define GetBatteryStatus_Response_init_zero      {0}
+#define GetBatteryStatus_Response_init_zero      {0, 0}
 #define GetDeviceInfo_init_zero                  {0, {GetDeviceInfo_Request_init_zero}}
 #define GetDeviceInfo_Request_init_zero          {0}
 #define GetDeviceInfo_Response_init_zero         {{{NULL}, NULL}, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define GetBatteryStatus_Response_battery_level_tag 1
+#define GetBatteryStatus_Response_isCharging_tag 2
 #define GetBatteryStatus_request_tag             1
 #define GetBatteryStatus_response_tag            2
 #define GetBatteryStatus_error_tag               3
@@ -91,7 +93,8 @@ X(a, CALLBACK, ONEOF,    STRING,   (message,error,message.error),   3)
 #define GetBatteryStatus_Request_DEFAULT NULL
 
 #define GetBatteryStatus_Response_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, INT32,    battery_level,     1)
+X(a, STATIC,   SINGULAR, INT32,    battery_level,     1) \
+X(a, STATIC,   SINGULAR, BOOL,     isCharging,        2)
 #define GetBatteryStatus_Response_CALLBACK NULL
 #define GetBatteryStatus_Response_DEFAULT NULL
 
@@ -135,7 +138,7 @@ extern const pb_msgdesc_t GetDeviceInfo_Response_msg;
 /* GetDeviceInfo_size depends on runtime parameters */
 /* GetDeviceInfo_Response_size depends on runtime parameters */
 #define GetBatteryStatus_Request_size            0
-#define GetBatteryStatus_Response_size           11
+#define GetBatteryStatus_Response_size           13
 #define GetDeviceInfo_Request_size               0
 #define TRX_DEVICE_PB_HPP_MAX_SIZE               GetBatteryStatus_Response_size
 

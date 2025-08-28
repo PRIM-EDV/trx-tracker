@@ -107,7 +107,7 @@ namespace Board
 		using Rx = GpioInputA3;
 		using Tx = GpioOutputA2;
 
-		using Uart = BufferedUart<UsartHal2, UartRxBuffer<128>, UartTxBuffer<128>>;
+		using Uart = BufferedUart<UsartHal2, UartRxBuffer<64>, UartTxBuffer<64>>;
 	}
 
 	namespace usb
